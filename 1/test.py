@@ -22,5 +22,8 @@ import PySimpleGUI as sg
 sg.theme("DarkAmber")
 sg.Window("First simple window",
           layout=[[]],
-          margins=[100, 100]).read()
+          margins=[100, 100],  # Esta é a margem interna dentro da janela
+          ).read()
 
+# comente a linha #25 acima e rode o programa para ver o que acontece.
+# -- a janela fica minúscula!
