@@ -27,3 +27,5 @@ Não é necessário instalar o tkinter
     cd 2
     python3 test.py
 ```
+
+![test](test.png)
