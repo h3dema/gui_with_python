@@ -40,7 +40,7 @@ class CadastroSimplesDB(object):
         with self.conn as conn:
             cur = conn.cursor()
             _fields = ", ".join(self.tb_cadastro)
-            cur.execute(f"CREATE TABLE {self.table_name}({_fields})")
+            cur.execute(f"CREATE TABLE IF NOT EXISTS {self.table_name}({_fields})")
             # a linha acima equivale a:
             # cur.execute("CREATE TABLE cadastro(razaosocial, cnpj, inscricao, logradouro, estado, cep, fone, fat_logradouro, fat_estado, fat_cnpj, fat_inscricao)")
 
@@ -66,7 +66,7 @@ class CadastroSimplesDB(object):
     def _delete_table(self):
         with self.conn as conn:
             cur = conn.cursor()
-            cur.execute(f"DROP TABLE {self.table_name}")
+            cur.execute(f"DROP TABLE IF EXISTS {self.table_name}")
             # a linha acima equivale a:
             # cur.execute("CREATE TABLE cadastro(razaosocial, cnpj, inscricao, logradouro, estado, cep, fone, fat_logradouro, fat_estado, fat_cnpj, fat_inscricao)")
 
@@ -81,7 +81,6 @@ class CadastroSimplesDB(object):
             """
             raise MissingMandotoryFieldsException(f"Nem todos os campos obrigatórios estão preenchidos. Verifique: {self.tb_cadastro_obr}")
             # return False
-
 
         # extra: verificar se cnpj é valido
         # formato: xx.xxx.xxx/xxxx-xx
@@ -121,6 +120,17 @@ class CadastroSimplesDB(object):
             # print(sql)
             try:
                 cur.execute(sql, self._clean(data) + [data["cnpj"]])  # adicionar o CNPJ para o WHERE
+                conn.commit()
+            except sqlite3.IntegrityError as err:
+                print('sqlite error: ', err.args[0])  # column name is not unique
+
+    def delete(self, cnpj: str):
+        with self.conn as conn:
+            cur = conn.cursor()
+            sql = f"DELETE FROM {self.table_name} WHERE cnpj = ?"
+            # print(sql)
+            try:
+                cur.execute(sql, [data["cnpj"]])
                 conn.commit()
             except sqlite3.IntegrityError as err:
                 print('sqlite error: ', err.args[0])  # column name is not unique
