@@ -9,4 +9,7 @@ Este metodo é bastante ineficiente mas está sendo mostrado aqui somente para a
 
 - Além disto ao preencher o campo de cep, se o endereco estiver em branco, o endereço é preenchido automaticamente buscando o dados de um site na internet.
 Este também não é o melhor método, mas exemplifica como usar um webcrawler para extrair informações da internet para seu programa.
+O código deste crawler, você vai encontrar, em `utilities/cep`.
+
+- Os dados do cadastro são gravados e lidos de um banco de dados simples feito utilizando sqlite. O código da classe que manipula estes dados está em `utilities/db`
 
