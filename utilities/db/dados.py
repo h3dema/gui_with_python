@@ -7,18 +7,18 @@ class MissingMandotoryFieldsException(Exception):
 
 class CadastroSimplesDB(object):
 
-    # nome do arquivo de dados
-    db_datafile = "cadastro.db"
-
-    # unica tabela do nosso banco de dados
-    table_name = "cadastro"
-
     # nomes dos campos da tabela
     # tipos de dados: https://docs.python.org/3/library/sqlite3.html#sqlite-and-python-types
     tb_cadastro = ["razaosocial", "cnpj", "inscricao", "logradouro", "estado", "cep", "fone", "fat_logradouro", "fat_estado", "fat_cnpj", "fat_inscricao"]
     tb_cadastro_obr = ["razaosocial", "cnpj"]
 
     def __init__(self):
+        # nome do arquivo de dados
+        self.db_datafile = "cadastro.db"
+
+        # unica tabela do nosso banco de dados
+        self.table_name = "cadastro"
+
         # cria automaticamente a tabela, se ela não existir no banco de dados
         if not self._table_exists():
             self._create_table()
@@ -135,11 +135,36 @@ class CadastroSimplesDB(object):
             except sqlite3.IntegrityError as err:
                 print('sqlite error: ', err.args[0])  # column name is not unique
 
-    def get(self, cnpj: str):
+    def get(self, cnpj: str) -> dict:
+        """ seleciona um cliente do banco de dados pelo seu CNPJ
+
+        Args:
+            cnpj (str): valor do CNPJ do cliente
+
+        Returns:
+            dict: dados do cliente ou dicionário vazio
+        """
         with self.conn as conn:
             cur = conn.cursor()
             res = cur.execute(f"SELECT * FROM {self.table_name} WHERE cnpj = ?", [cnpj]).fetchall()
             return {k: v for k, v in zip(self.tb_cadastro, res[0])} if len(res) > 0 else None
+
+    def get_all(self, limit: int = None):
+        """busca todos os dados lançados no banco de dados
+
+        Args:
+            limit (int, optional): limita o numero de clientes retornados. Defaults to None (sem limite).
+
+        Returns:
+            _type_: _description_
+        """
+        assert limit is None or limit > 0, "Limit deve ser positivo."
+        with self.conn as conn:
+            cur = conn.cursor()
+            res = cur.execute(
+                "SELECT * FROM {}{}".format(self.table_name, "" if limit is None else f" LIMIT {limit}")
+            ).fetchall()
+            return [{k: v for k, v in zip(self.tb_cadastro, line)} for line in res] if len(res) > 0 else None
 
 
 if __name__ == '__main__':
@@ -183,6 +208,9 @@ if __name__ == '__main__':
 
     dados_empresa = db.get(cnpj)
     print("Do BD:", dados_empresa)
+
+    print("*" * 80, "Todos")
+    print(db.get_all())
 
     # remove a table para manter o db limpo
     db._delete_table()
