@@ -28,7 +28,6 @@ if __name__ == '__main__':
                     sg.Image(imgs["0"], key="-H1-"),
                     sg.Image(imgs["0"], key="-H2-"),
                     sg.Image(imgs[":"], key="-sep1-"),
-                    sg.Image(imgs[":"], key="-sep1-"),
                     sg.Image(imgs["0"], key="-M1-"),
                     sg.Image(imgs["0"], key="-M2-"),
                     sg.Image(imgs[":"], key="-sep2-"),

@@ -11,12 +11,12 @@ Este folder contem os codigos para criacao de um cronometro digital em Python ut
 - stopwatch.py:
   + cronometro funcional com display em texto normal
 
+![Cronometro](stopwatch.png)
+
 - stopwatchled.py:
   + cronometro funcional com display em led
 
-![Cronometro](stopwatch.png)
+![Cronometro LED](stopwatchled.png)
 
 - repeattimer.py:
-  - modulo com a classe de Timer que é acionado a cada x décimos de segundo
-
-![Cronometro LED](stopwatchled.png)
+  - modulo (auxiliar) com a classe de Timer que é acionado a cada x décimos de segundo
