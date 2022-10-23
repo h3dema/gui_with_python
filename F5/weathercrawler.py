@@ -2,13 +2,10 @@
     obtem informacoes de tempo da internet
 
 """
-from tkinter import W
 import urllib.parse
 import datetime
 import requests
 
-
-api_key = "ada361bb2a6bedf4aca521bd8e9beb94"
 
 def get_weather(lat: float, lon: float,
                 day: datetime.datetime = datetime.datetime.now(),
@@ -56,6 +53,7 @@ def get_weather(lat: float, lon: float,
         return resp.json()
     else:
         return {}
+
 
 if __name__ == "__main__":
     weather_info = get_weather(lat=-13.01009515567156, lon=-38.532752829369244)  # Farol da Barra, Salvador/BA
