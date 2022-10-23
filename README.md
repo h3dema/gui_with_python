@@ -2,13 +2,17 @@
 
 Exemplos de programas com interface gráfica utilizando Python.
 
-- `1`: Cria uma janela vazia no Linux
+- `F1`: Cria uma janela vazia no Linux
 
-- `2`: Cria uma janela vazia no Windows
+- `F2`: Cria uma janela vazia no Windows
 
-- `3`: Cria uma janela simples com botoes, textos e inputs
+- `F3`: Cria uma janela simples com botoes, textos e inputs
 
-- `4`: Janela de cadastro de cliente
+- `F4`: Janela de cadastro de cliente
+
+- `F5`: Interface de tempo
+
+- `F6`: Cronometro digital
 
 - `Utilities`:
 
