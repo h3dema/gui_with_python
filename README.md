@@ -17,5 +17,5 @@ Exemplos de programas com interface gráfica utilizando Python.
 - `Utilities`:
 
   - `cep`: Módulo python para busca de CEP na internet (crawler)
-  - `db`: Classe para acesso a banco de dados SQLITE. Utilizado em `4`.
+  - `db`: Classe para acesso a banco de dados SQLITE. Utilizado em `F4`.
 
