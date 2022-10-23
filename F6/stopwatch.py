@@ -82,7 +82,7 @@ if __name__ == '__main__':
               ]
 
     #Create the Window
-    window = sg.Window('Window Title', layout)
+    window = sg.Window('Cronometro', layout)
 
     def update_clock(time_lapsed):
         value = "{:02d}:{:02d}:{:02d}.{:01d}".format(*time_convert(time_lapsed))
