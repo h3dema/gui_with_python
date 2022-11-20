@@ -12,6 +12,7 @@ Este é também um layout padrão do PySimpleGUI, pois você pode colocar dois (
 As linhas são independentes. Os objetos são colocados um ao lado do outro e alinhados pelo tamanho.
 Assim podemos ter a impressão que as colunas possuem quebras, mas na verdade, os elementos são considerados dentro da linha onde são criados.
 Por isto vemos os blocos vermelhos como se estivessem em colunas sobrepostas, mas precisamos lembrar que a criação dos elementos é feita por linha.
+Criar este mesmo efeito só que com as linhas com quebras, é muito mais difícil.
 
 ![duas linhas, duas colunas](imgs/ex03.png "ex03.py")
 
