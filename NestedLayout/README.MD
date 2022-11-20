@@ -1,4 +1,4 @@
-O conteúdo deste folder é um completo do video do [Youtube](https://youtu.be/tmWO2BxFCCo).
+O conteúdo deste folder é um complemento do video do [Youtube](https://youtu.be/tmWO2BxFCCo) que fala sobre o uso de `Nested Layouts` com PySimpleGUI.
 
 Este é um layout padrão do PySimpleGUI. Você pode colocar dois (ou mais) elementos de tamanhos distintos, um ao lado do outro em uma única linha.
 
