@@ -1,2 +1,7 @@
 pysimplegui
 requests
+geopy
+
+# windows capture
+opencv-python
+pywin32
