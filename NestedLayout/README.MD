@@ -1,3 +1,5 @@
+O conteúdo deste folder é um completo do video do [Youtube](https://youtu.be/tmWO2BxFCCo).
+
 Este é um layout padrão do PySimpleGUI. Você pode colocar dois (ou mais) elementos de tamanhos distintos, um ao lado do outro em uma única linha.
 
 ![1 linha, duas colunas](imgs/ex01.png "ex01.py")
