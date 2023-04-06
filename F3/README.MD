@@ -15,7 +15,7 @@ location = [x, y]
 - O padrão é centralizar na tela.
 - Se passar None significa que o sistema operacional decidirá a posição.
 
-## Themas
+## Temas
 
 Mostra todos os temas:
 
